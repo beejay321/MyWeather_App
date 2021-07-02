@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import { City, Current } from "../types/interface";
 
 function Search() {
-  const [query, setQuery] = useState<string>("");
+  const [query, setQuery] = useState<string>("Hamburg");
   const [city, setCity] = useState<City | null>(null);
   const [current, setCurrent] = useState<Current | null>(null);
 
@@ -15,7 +15,7 @@ function Search() {
   };
 
   const getWeather = async (query: string) => {
-    const ApiKey = "9d33c3e69026b25a6cab7f300ec5e461";
+    const ApiKey = "29f89c36ba2b5cddcb3735b724701235";
     try {
       let response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${ApiKey}`);
       console.log(response);
@@ -23,7 +23,7 @@ function Search() {
         let result = await response.json();
         console.log(result);
         setCity(result);
-        
+
         try {
           let NewResponse = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${city!.coord.lat}&lon=${city!.coord.lon}&units=metric&exclude=minutely&appid=${ApiKey}`);
           console.log(NewResponse);

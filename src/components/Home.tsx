@@ -18,28 +18,27 @@ const Home = ({ title, current, city }: HomeProps) => {
         <Container>
           <Row className="justify-content-center mt-3">
             <Col>
-              <h2>{city.name}</h2>
-              <h3> Weather </h3>
+              <h3>{city.name}</h3>
+              <h4> Weather </h4>
             </Col>
             <Col>
               {" "}
               <img className="d-block " height="120" src={`http://openweathermap.org/img/wn/${current.current.weather[0].icon}@2x.png`} alt={"slide number "} />
             </Col>
             <Col>
-              <h2>{current.current.temp}°C </h2>
-              <h3> {current.current.weather[0].description} </h3>
-              
+              <h3>{current.current.temp}°C </h3>
+              <h5> {current.current.weather[0].description} </h5>
             </Col>
           </Row>
           <Row className="py-5">
             <Col>
-              <h5>humidity: {current.current.humidity}%</h5>
+              <h6>humidity: {current.current.humidity}%</h6>
             </Col>
             <Col>
-              <h5>wind: {current.current.wind_speed}m/s </h5>
+              <h6>wind: {current.current.wind_speed}m/s </h6>
             </Col>
             <Col>
-              <h5> cloud cover: {current.current.clouds}%</h5>
+              <h6> cloud cover: {current.current.clouds}%</h6>
             </Col>
           </Row>
         </Container>
@@ -51,11 +50,11 @@ const Home = ({ title, current, city }: HomeProps) => {
             <Row className="scroll">
               {current.hourly.map((h, i) => (
                 <Col>
-                  <div>12</div>
-                   <div>
+                  <div>{h.dt}</div>
+                  <div>
                     {" "}
                     <img className="d-block " height="20" src="http://openweathermap.org/img/wn/10d@2x.png" alt={"icon"} />
-                  </div> 
+                  </div>
                   <div>{h.temp}°C</div>
                 </Col>
               ))}
@@ -70,7 +69,7 @@ const Home = ({ title, current, city }: HomeProps) => {
             <Col>
               <Row>
                 <Col>
-                  <img className="d-block  " height="80" src= {`http://openweathermap.org/img/wn/${h.weather[0].icon}@2x.png`} alt={"icon"} />
+                  <img className="d-block  " height="80" src={`http://openweathermap.org/img/wn/${h.weather[0].icon}@2x.png`} alt={"icon"} />
                 </Col>
                 <Col className="d-block  pt-4">{h.weather[0].description}</Col>
                 <Col></Col>
