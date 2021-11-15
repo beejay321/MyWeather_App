@@ -16,8 +16,6 @@ const Home = ({ title }: HomeProps) => {
   const [ccity, setCity] = useState<City | null>(null);
   const [ccurrent, setCurrent] = useState<Current | null>(null);
 
-
-
   useEffect(() => {
     console.log("why not working");
     const getWeather = async () => {
@@ -31,19 +29,19 @@ const Home = ({ title }: HomeProps) => {
           setCity(result);
 
           if (result) {
-          try {
-            let NewResponse = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${result!.coord.lat}&lon=${result!.coord.lon}&units=metric&exclude=minutely&appid=${ApiKey}`);
+            try {
+              let NewResponse = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${result!.coord.lat}&lon=${result!.coord.lon}&units=metric&exclude=minutely&appid=${ApiKey}`);
 
-            // let NewResponse = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=48.2085&lon=16.3721&units=metric&exclude=minutely&appid=${ApiKey}`);
-            console.log(NewResponse);
-            let data = await NewResponse.json();
-            console.log(data);
-            setCurrent(data);
-          } catch (error) {
-            console.log(error);
+              // let NewResponse = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=48.2085&lon=16.3721&units=metric&exclude=minutely&appid=${ApiKey}`);
+              console.log(NewResponse);
+              let data = await NewResponse.json();
+              console.log(data);
+              setCurrent(data);
+            } catch (error) {
+              console.log(error);
+            }
           }
         }
-      }
       } catch (error) {
         console.log("This is the error", error);
       }
@@ -84,10 +82,9 @@ const Home = ({ title }: HomeProps) => {
             <div className="d-flex gap-4 ">
               {ccurrent.hourly.map((h, i) => (
                 <div className="d-grid py-2">
-                  {/* <p>{h.dt}</p> */}
-                  <p>07</p>
+                  <p>{new Date(h.dt * 1000).getHours()}</p>
                   <img className="d-block mb-3 " height="20" src={`http://openweathermap.org/img/wn/${h.weather[0].icon}@2x.png`} alt={"icon"} />
-                  <p>{h.temp}°C</p>
+                  <p>{Math.floor(h.temp)}°C</p>
                 </div>
               ))}
             </div>
@@ -104,12 +101,11 @@ const Home = ({ title }: HomeProps) => {
                 {ccurrent.daily.map((h, i) => (
                   <div className="d-flex gap-3 py-2 ">
                     <p className="pt-2 m-0 ">Today</p>
-                    {/* <p className="pt-2 m-0 ">img</p> */}
                     <img className="d-block " height="40" src={`http://openweathermap.org/img/wn/${h.weather[0].icon}@2x.png`} alt={"icon"} />
 
                     <div className="d-flex gap-5  ">
-                      <p className="px-2 pt-2 m-0"> H: {h.temp.max}°C</p>
-                      <p className=" pt-2 m-0">L: {h.temp.min}°C</p>
+                      <p className="px-2 pt-2 m-0"> H: {Math.floor(h.temp.max)}°C</p>
+                      <p className=" pt-2 m-0">L: {Math.floor(h.temp.min)}°C </p>
                     </div>
                     <p className="pt-2 m-0 ">{h.weather[0].description}</p>
                   </div>
@@ -119,7 +115,6 @@ const Home = ({ title }: HomeProps) => {
           </Row>
         )}
       </Container>
-      
     </>
   );
 };
