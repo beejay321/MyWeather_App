@@ -119,29 +119,7 @@ const Home = ({ title }: HomeProps) => {
           </Row>
         )}
       </Container>
-      {/* <Container className="py-5"> */}
-      {/* {current.daily.map((h, i) => ( 
-           <Row className="justify-content-center mt-3" key={h.dt}>*/}
-      {/* <Col>
-              <Row>
-                <Col>
-                  <img className="d-block  " height="80" src={`http://openweathermap.org/img/wn/${h.weather[0].icon}@2x.png`} alt={"icon"} />
-                </Col>
-                <Col className="d-block  pt-4">{h.weather[0].description}</Col>
-                <Col></Col>
-              </Row>
-            </Col> */}
-
-      {/* <Col className="d-block  pt-4">
-              H:{h.temp.max}°C / L:{h.temp.min}°C
-            </Col> */}
-      {/* <Col className="d-block  pt-4">
-             {h.temp}°C 
-            </Col> */}
-      {/* <Col>L:{h.temp.min}°C</Col> 
-          </Row>
-        // ))}
-       </Container> */}
+      
     </>
   );
 };
