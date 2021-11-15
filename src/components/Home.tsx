@@ -76,8 +76,11 @@ const Home = ({ title, current, city }: HomeProps) => {
               </Row>
             </Col>
 
-            <Col className="d-block  pt-4">
+            {/* <Col className="d-block  pt-4">
               H:{h.temp.max}°C / L:{h.temp.min}°C
+            </Col> */}
+            <Col className="d-block  pt-4">
+             {h.temp}°C 
             </Col>
             {/* <Col>L:{h.temp.min}°C</Col> */}
           </Row>
