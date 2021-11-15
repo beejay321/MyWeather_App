@@ -1,4 +1,12 @@
 .scroll {
-    width: 100%;
+    /* width: 100%; */
     overflow: auto;
+    border-radius: 5px;
+    background-color: rgb(214, 228, 245);
+}
+.scroll2 {
+    /* width: 100%; */
+    overflow: auto;
+    border-radius: 5px;
+    background-color: rgb(214, 228, 245);
 }
