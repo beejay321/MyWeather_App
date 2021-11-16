@@ -1,12 +1,26 @@
+body {
+  /* width: 100%; */
+ 
+  background-color: rgb(193, 206, 223);
+}
 .scroll {
-    /* width: 100%; */
-    overflow: auto;
-    border-radius: 5px;
-    background-color: rgb(214, 228, 245);
+  /* width: 100%; */
+  overflow: auto;
+  border-radius: 10px;
+  background-color: rgb(214, 228, 245);
 }
 .scroll2 {
-    /* width: 100%; */
-    overflow: auto;
-    border-radius: 5px;
-    background-color: rgb(214, 228, 245);
+  /* width: 100%; */
+  /* overflow: auto; */
+  border-radius: 10px;
+  background-color: rgb(214, 228, 245);
+}
+.text {
+  text-align: start;
+}
+.textend {
+  text-align: end;
+}
+.textend {
+  text-align: start;
 }
