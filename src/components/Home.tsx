@@ -61,13 +61,13 @@ const Home = ({ title }: HomeProps) => {
                   <img className="d-flex  justify-content-center" height="60" src={`http://openweathermap.org/img/wn/${ccurrent.current.weather[0].icon}@2x.png`} alt={"slide number "} />
                 </div>
                 <div className="d-grid ">
-                  <h3 className="d-flex justify-content-center">{ccurrent.current.temp}°C </h3>
+                  <h3 className="d-flex justify-content-center">{Math.floor(ccurrent.current.temp)}°C </h3>
                   <h5 className="d-flex justify-content-center"> {ccurrent.current.weather[0].description} </h5>
-                </div>
-                <div className="d-flex  justify-content-center gap-4">
-                  <span className="d-flex justify-content-center"> humidity: {ccurrent.current.humidity}% </span>
-                  <span className="d-flex justify-content-center">wind: {ccurrent.current.wind_speed}m/s </span>
-                  <span className="d-flex justify-content-center">cloud cover: {ccurrent.current.clouds}% </span>
+                  {/* </div>
+                <div className="d-grid  justify-content-center gap-1"> */}
+                  <span className="d-flex justify-content-center text"> Humidity: {ccurrent.current.humidity}% </span>
+                  <span className="d-flex justify-content-center text">Wind: {ccurrent.current.wind_speed}m/s </span>
+                  <span className="d-flex justify-content-center ">Cloud cover: {ccurrent.current.clouds}% </span>
                 </div>
               </div>
             )}
@@ -81,7 +81,7 @@ const Home = ({ title }: HomeProps) => {
             {/* <p  className=" pt-2">Cloud conditions will continue for the rest of the day</p> */}
             <div className="d-flex gap-4 ">
               {ccurrent.hourly.map((h, i) => (
-                <div className="d-grid py-2">
+                <div className="d-grid py-2 ">
                   <p>{new Date(h.dt * 1000).getHours()}</p>
                   <img className="d-block mb-3 " height="20" src={`http://openweathermap.org/img/wn/${h.weather[0].icon}@2x.png`} alt={"icon"} />
                   <p>{Math.floor(h.temp)}°C</p>
@@ -95,23 +95,25 @@ const Home = ({ title }: HomeProps) => {
       <Container>
         {ccurrent && (
           <Row>
-            <div className="d-flex my-4 scroll2   ">
-              {/* <p  className=" pt-2">Cloud conditions will continue for the rest of the day</p> */}
-              <div className="d-grid gap-1 px-3 ">
-                {ccurrent.daily.map((h, i) => (
+            {ccurrent.daily.map((h, i) => (
+              <div className="d-flex my-1 scroll2   ">
+                {/* <p  className=" pt-2">Cloud conditions will continue for the rest of the day</p> */}
+                <div className="d-grid gap-1 px-3 ">
                   <div className="d-flex gap-3 py-2 ">
                     <p className="pt-2 m-0 ">Today</p>
                     <img className="d-block " height="40" src={`http://openweathermap.org/img/wn/${h.weather[0].icon}@2x.png`} alt={"icon"} />
 
-                    <div className="d-flex gap-5  ">
-                      <p className="px-2 pt-2 m-0"> H: {Math.floor(h.temp.max)}°C</p>
-                      <p className=" pt-2 m-0">L: {Math.floor(h.temp.min)}°C </p>
+                    <div className="d-flex gap-5 justify-content-between textend">
+                      <p className=" px-3 pt-2 m-0 "> H: {Math.floor(h.temp.max)}°C</p>
+                    {/* </div>
+                    <div className="  textstart"> */}
+                      <p className=" pt-2 m-0 textstart">L: {Math.floor(h.temp.min)}°C </p>
                     </div>
-                    <p className="pt-2 m-0 ">{h.weather[0].description}</p>
+                    {/* <p className="pt-2 m-0 ">{h.weather[0].main}</p> */}
                   </div>
-                ))}
+                </div>
               </div>
-            </div>
+            ))}
           </Row>
         )}
       </Container>
