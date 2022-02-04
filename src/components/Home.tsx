@@ -10,14 +10,18 @@ interface HomeProps {
   // something:string
   // current: Current;
   // city: City;
+
 }
 
 const Home = ({ title }: HomeProps) => {
   const [ccity, setCity] = useState<City | null>(null);
   const [ccurrent, setCurrent] = useState<Current | null>(null);
+  let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
 
   useEffect(() => {
     console.log("why not working");
+    console.log(days);
+
     const getWeather = async () => {
       const ApiKey = "29f89c36ba2b5cddcb3735b724701235";
       try {
@@ -32,7 +36,6 @@ const Home = ({ title }: HomeProps) => {
             try {
               let NewResponse = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${result!.coord.lat}&lon=${result!.coord.lon}&units=metric&exclude=minutely&appid=${ApiKey}`);
 
-              // let NewResponse = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=48.2085&lon=16.3721&units=metric&exclude=minutely&appid=${ApiKey}`);
               console.log(NewResponse);
               let data = await NewResponse.json();
               console.log(data);
@@ -94,18 +97,18 @@ const Home = ({ title }: HomeProps) => {
 
       <Container>
         {ccurrent && (
-          <Row>
+           <Row >
             {ccurrent.daily.map((h, i) => (
               <div className="d-flex my-1 scroll2   ">
                 {/* <p  className=" pt-2">Cloud conditions will continue for the rest of the day</p> */}
                 <div className="d-grid gap-1 px-3 ">
                   <div className="d-flex gap-3 py-2 ">
-                    <p className="pt-2 m-0 ">Today</p>
+                    <p className="pt-2 m-0 texts ">{days[new Date(h.dt * 1000).getDay()]}</p>
                     <img className="d-block " height="40" src={`http://openweathermap.org/img/wn/${h.weather[0].icon}@2x.png`} alt={"icon"} />
 
                     <div className="d-flex gap-5 justify-content-between textend">
                       <p className=" px-3 pt-2 m-0 "> H: {Math.floor(h.temp.max)}°C</p>
-                    {/* </div>
+                      {/* </div>
                     <div className="  textstart"> */}
                       <p className=" pt-2 m-0 textstart">L: {Math.floor(h.temp.min)}°C </p>
                     </div>

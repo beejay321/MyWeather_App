@@ -24,3 +24,6 @@ body {
 .textend {
   text-align: start;
 }
+.texts{
+  min-width: 40px;
+}
