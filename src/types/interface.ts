@@ -1,11 +1,10 @@
 export interface City {
   id: number;
-  name : string
+  name: string;
   coord: {
     lon: number;
     lat: number;
   };
-  //   main: Main;
 }
 
 export interface Main {
@@ -88,7 +87,3 @@ export interface Wind {
   speed: number;
   deg: number;
 }
-
-
-
-
