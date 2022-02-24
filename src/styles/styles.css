@@ -24,6 +24,14 @@ body {
 .textend {
   text-align: start;
 }
+.weathericons{
+  min-width: 30px;
+}
+
 .texts{
+  min-width: 80%;
+}
+
+.days{
   min-width: 40px;
 }
