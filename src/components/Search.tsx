@@ -61,7 +61,7 @@ const Search = () => {
       }
     };
     getWeather();
-  }, [city, current, query]);
+  }, [city, current, query, ApiKey]);
 
   return (
     <>
