@@ -72,7 +72,7 @@ const Search = () => {
       }
     };
     getWeather();
-  }, []);
+  }, [city, current, query]);
 
   return (
     <>
