@@ -8,7 +8,7 @@ const Search = () => {
   const [query, setQuery] = useState<string>("Hamburg");
   const [city, setCity] = useState<City | null>(null);
   const [current, setCurrent] = useState<Current | null>(null);
-  const ApiKey = process.env.ApiKey;
+  const ApiKey = "29f89c36ba2b5cddcb3735b724701235";
 
   const getWeather = async (query: string) => {
     try {
