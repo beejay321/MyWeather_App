@@ -1,4 +1,4 @@
-import {  Col, Button, Form, FormControl, Container, Row, Jumbotron } from "react-bootstrap";
+import {  Col, Button, Form, FormControl, Container, Row } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { City, Current } from "../types/interface";
 import Home from "./Home";
@@ -6,8 +6,8 @@ import "../styles/styles.css";
 
 const Search = () => {
   const [query, setQuery] = useState<string>("Hamburg");
-  const [ccity, setCity] = useState<City | null>(null);
-  const [ccurrent, setCurrent] = useState<Current | null>(null);
+  const [city, setCity] = useState<City | null>(null);
+  const [current, setCurrent] = useState<Current | null>(null);
   let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
 
   const getWeather = async (query: string) => {
@@ -51,7 +51,7 @@ const Search = () => {
           let result = await response.json();
           console.log(result);
           setCity(result);
-          console.log(ccity);
+          console.log(city);
 
           if (result) {
             try {
@@ -61,7 +61,7 @@ const Search = () => {
               let data = await NewResponse.json();
               console.log(data);
               setCurrent(data);
-              console.log(ccurrent);
+              console.log(current);
             } catch (error) {
               console.log(error);
             }
@@ -91,7 +91,7 @@ const Search = () => {
 
           <Row className="d-flex justify-content-center mb-4">
             <Col xs={12} sm={10} md={8} lg={7} xl={4}>
-              <Home ccurrent={ccurrent} ccity={ccity} />
+              <Home ccurrent={current} ccity={city} />
             </Col>
           </Row>
         </Container>
