@@ -19,7 +19,7 @@ const Home = ({ ccurrent, ccity }: HomeProps) => {
               <div className="d-grid ">
                 <h3 className="d-flex justify-content-center">{ccity!.name}</h3>
                 <div className="d-flex justify-content-center">
-                  <img className="d-flex  justify-content-center" height="60" src={`http://openweathermap.org/img/wn/${ccurrent.current.weather[0].icon}@2x.png`} alt={"slide number "} />
+                  <img className="d-flex  justify-content-center" height="60" src={`https://openweathermap.org/img/wn/${ccurrent.current.weather[0].icon}@2x.png`} alt={"slide number "} />
                 </div>
                 <div className="d-grid ">
                   <h3 className="d-flex justify-content-center">{Math.floor(ccurrent.current.temp)}°C </h3>
@@ -42,7 +42,7 @@ const Home = ({ ccurrent, ccity }: HomeProps) => {
               {ccurrent.hourly.map((h, i) => (
                 <div className="d-grid py-2 ">
                   <p>{new Date(h.dt * 1000).getHours()}</p>
-                  <img className="d-block mb-3 " height="20" src={`http://openweathermap.org/img/wn/${h.weather[0].icon}@2x.png`} alt={"icon"} />
+                  <img className="d-block mb-3 " height="20" src={`https://openweathermap.org/img/wn/${h.weather[0].icon}@2x.png`} alt={"icon"} />
                   <p>{Math.floor(h.temp)}°C</p>
                 </div>
               ))}
@@ -58,7 +58,7 @@ const Home = ({ ccurrent, ccity }: HomeProps) => {
               <div className="d-flex  py-2  justify-content-center my-1 scroll2  gap-5 ">
                 <div className="d-flex gap-3 py-2 ">
                   <p className="pt-2 m-0 days ">{days[new Date(h.dt * 1000).getDay()]}</p>
-                  <img className=" d-block px-2 " height="40" src={`http://openweathermap.org/img/wn/${h.weather[0].icon}@2x.png`} alt={"icon"} />
+                  <img className=" d-block px-2 " height="40" src={`https://openweathermap.org/img/wn/${h.weather[0].icon}@2x.png`} alt={"icon"} />
                 </div>
                 <div className="d-flex py-2  justify-content-center gap-3  textend">
                   <p className="  pt-2 m-0  texts">L: {Math.floor(h.temp.min)}°C </p>

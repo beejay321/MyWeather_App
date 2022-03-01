@@ -8,11 +8,11 @@ const Search = () => {
   const [query, setQuery] = useState<string>("Hamburg");
   const [city, setCity] = useState<City | null>(null);
   const [current, setCurrent] = useState<Current | null>(null);
-  const ApiKey = "29f89c36ba2b5cddcb3735b724701235";
+  const ApiKey = process.env.ApiKey;
 
   const getWeather = async (query: string) => {
     try {
-      let response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${ApiKey}`);
+      let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${ApiKey}`);
       if (response.ok) {
         let result = await response.json();
         console.log(result);
@@ -38,7 +38,7 @@ const Search = () => {
   useEffect(() => {
     const getWeather = async () => {
       try {
-        let response = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${ApiKey}`);
+        let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${ApiKey}`);
         if (response.ok) {
           let result = await response.json();
           console.log(result);
