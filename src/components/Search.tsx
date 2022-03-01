@@ -9,7 +9,7 @@ const Search = () => {
   const [city, setCity] = useState<City | null>(null);
   const [current, setCurrent] = useState<Current | null>(null);
   let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
-  
+  const ApiKey = "29f89c36ba2b5cddcb3735b724701235";
 
   const getWeather = async (query: string) => {
     try {
