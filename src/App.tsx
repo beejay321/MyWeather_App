@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Router>
-        <MyNav title="WeatherWidgets" />
+        {/* <MyNav title="WeatherWidgets" /> */}
         <Route path="/" component={Search} />
       </Router>
     </>
