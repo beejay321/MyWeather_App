@@ -1,8 +1,284 @@
 body {
   /* width: 100%; */
- 
-  background-color: rgb(193, 206, 223);
+
+  /* background-color: #cccae4; */
 }
+
+/* ***************Side nav****************** */
+.side-nav {
+  padding: 30px 0px;
+  height: 100vh;
+  background-color: #1e213a;
+  width: 450px;
+  color: white;
+  display: flex;
+  justify-content: center;
+  text-align: center;
+}
+.side-nav-details {
+  display: grid;
+  justify-content: space-between;
+}
+.search {
+  margin: 20px 0px 60px;
+  position: relative;
+  right: 0;
+}
+.search-form {
+  margin: 20px 0px 60px;
+  /* position: relative; */
+  right: 0;
+}
+.search-btn {
+  background: none;
+  position: absolute;
+  right: 0;
+  top: 18px;
+  cursor: pointer;
+  color: white;
+  padding: 8px;
+  background-color: rgb(4, 4, 117);
+  /* border-radius: 50px; */
+}
+.weather-image {
+  margin: 0px 0px 20px;
+}
+.temp {
+  font-size: 100px;
+  font-family: "Raleway", sans-serif;
+}
+.condition {
+  font-size: 25px;
+  font-family: "Raleway", sans-serif;
+  color: white;
+}
+.current-date {
+  font-size: 15px;
+  font-family: "Raleway", sans-serif;
+}
+.location {
+  bottom: 25px;
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-family: "Raleway", sans-serif;
+  color: white;
+}
+
+/* *********************Search******************** */
+.home {
+  display: flex;
+}
+
+/* *********************Home******************** */
+.main-div {
+  height: 100vh;
+  background-color: #0f0e1d;
+  width: calc(100vw - 450px);
+  display: flex;
+  justify-content: center;
+  padding: 42px;
+}
+.details {
+  width: 50vw;
+}
+.daily-div {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  /* flex-wrap: wrap; */
+  overflow-x: auto;
+}
+
+.daily {
+  background-color: #1e213a;
+  padding: 24px 20px 8px;
+  width: 120px;
+  color: white;
+  text-align: center;
+  margin-bottom: 10px;
+  font-family: "Raleway", sans-serif;
+}
+.daily :nth-child(1) {
+  padding-bottom: 16px;
+}
+.daily :nth-child(2) {
+  padding-bottom: 16px;
+}
+.daily :nth-child(3) {
+  padding-bottom: 16px;
+}
+
+.daily :nth-child(3) :nth-child(2) {
+  font-size: 18px;
+  color: rgb(202, 202, 202);
+}
+.daily-highlights {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-flow: wrap;
+  padding: 0px 0px 20px;
+}
+.highlights {
+  background-color: #1e213a;
+  padding: 25px 0px;
+  width: 350px;
+  color: white;
+  text-align: center;
+  margin-bottom: 20px;
+  font-family: "Raleway", sans-serif;
+}
+
+.highlights :nth-child(1) {
+  padding-bottom: 8px;
+}
+.highlights :nth-child(3) {
+  padding-top: 8px;
+}
+.highlights :nth-child(2) :nth-child(1) {
+  font-size: 60px;
+  font-weight: 600;
+  padding-right: 5px;
+}
+.highlights :nth-child(2) :nth-child(2) {
+  font-size: 28px;
+}
+
+.units {
+  border-radius: 50%;
+  background-color: white;
+  color: black;
+  padding: 8px 10px;
+}
+
+.footer {
+  padding: 30px 0px 30px;
+  font-size: 16px;
+  font-family: "Raleway", sans-serif;
+  color: white;
+  bottom: 0;
+}
+
+/*********************Responsive scsreen *****************************/
+@media only screen and (max-width: 920px) {
+  .side-nav {
+    padding: 50px 0px;
+    height: 100%;
+    background-color: #1e213a;
+    width: 100vw;
+    color: white;
+  }
+  .search {
+    margin: 20px 0px 80px;
+  }
+  .weather-image {
+    margin: 0px 0px 50px;
+  }
+  .temp {
+    margin: 0px 0px 130px;
+    font-size: 70px;
+    font-family: "Raleway", sans-serif;
+  }
+  .condition {
+    margin: 0px 0px 20px;
+    font-size: 20px;
+    font-family: "Raleway", sans-serif;
+    color: white;
+  }
+  .current-date {
+    margin: 0px 0px 20px;
+    font-size: 12px;
+    font-family: "Raleway", sans-serif;
+  }
+  .location {
+    bottom: 25px;
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-family: "Raleway", sans-serif;
+    color: white;
+  }
+
+  /* *********************Home******************** */
+
+  .main-div {
+    height: 100%;
+    background-color: #0f0e1d;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    padding: 50px;
+  }
+  .details {
+    width: 80vw;
+  }
+  .daily-div {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    overflow-x: auto;
+  }
+
+  .daily {
+    background-color: #1e213a;
+    color: white;
+    text-align: center;
+  }
+  .daily-highlights {
+    display: flex;
+
+    gap: 20px;
+  }
+  .highlights {
+    background-color: #1e213a;
+    height: 180px;
+    color: white;
+    font-family: "Raleway", sans-serif;
+    padding: 18px;
+  }
+
+  .units {
+    border-radius: 50%;
+    background-color: white;
+    color: black;
+    padding: 8px 10px;
+  }
+
+  .home {
+    display: grid;
+  }
+}
+
+@media only screen and (max-width: 1320px) {
+  .home {
+    height: 100vh;
+  }
+  .main-div {
+    overflow-y: auto;
+    padding: 20px 5px;
+  }
+
+  .side-nav {
+    height: 100%;
+  }
+  .daily-highlights {
+    display: flex;
+    gap: 20px;
+  }
+  .highlights {
+    background-color: #1e213a;
+    height: 180px;
+    color: white;
+    font-family: "Raleway", sans-serif;
+    padding: 18px;
+  }
+}
+
 .scroll {
   /* width: 100%; */
   overflow: auto;
@@ -24,14 +300,14 @@ body {
 .textend {
   text-align: start;
 }
-.weathericons{
+.weathericons {
   min-width: 30px;
 }
 
-.texts{
+.texts {
   min-width: 80%;
 }
 
-.days{
+.days {
   min-width: 40px;
 }
