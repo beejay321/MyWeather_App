@@ -1,13 +1,11 @@
 body {
-  /* width: 100%; */
-
-  /* background-color: #cccae4; */
+  height: 100vh;
 }
 
 /* ***************Side nav****************** */
 .side-nav {
   padding: 30px 0px;
-  height: 100vh;
+  height: 100%;
   background-color: #1e213a;
   width: 450px;
   color: white;
@@ -26,7 +24,6 @@ body {
 }
 .search-form {
   margin: 20px 0px 60px;
-  /* position: relative; */
   right: 0;
 }
 .search-btn {
@@ -38,7 +35,6 @@ body {
   color: white;
   padding: 8px;
   background-color: rgb(4, 4, 117);
-  /* border-radius: 50px; */
 }
 .weather-image {
   margin: 0px 0px 20px;
@@ -70,26 +66,31 @@ body {
 /* *********************Search******************** */
 .home {
   display: flex;
+  height: 100vh;
 }
 
 /* *********************Home******************** */
+
 .main-div {
-  height: 100vh;
+  height: 100%;
   background-color: #0f0e1d;
   width: calc(100vw - 450px);
   display: flex;
   justify-content: center;
-  padding: 42px;
+  padding: 42px 0px 28px;
+  overflow-y: auto;
 }
 .details {
   width: 50vw;
+  min-height: 95%;
 }
 .daily-div {
+  margin-top: 25px;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
-  /* flex-wrap: wrap; */
   overflow-x: auto;
+  border-radius: 25px;
 }
 
 .daily {
@@ -130,6 +131,7 @@ body {
   text-align: center;
   margin-bottom: 20px;
   font-family: "Raleway", sans-serif;
+  border-radius: 25px;
 }
 
 .highlights :nth-child(1) {
@@ -155,18 +157,22 @@ body {
 }
 
 .footer {
-  padding: 30px 0px 30px;
+  padding: 0px 0px 30px;
   font-size: 16px;
   font-family: "Raleway", sans-serif;
   color: white;
   bottom: 0;
+
+  text-align: center;
 }
 
 /*********************Responsive scsreen *****************************/
 @media only screen and (max-width: 920px) {
-  .side-nav {
-    padding: 50px 0px;
+  .home {
+    display: flex;
     height: 100%;
+  }
+  .side-nav {
     background-color: #1e213a;
     width: 100vw;
     color: white;
@@ -215,7 +221,7 @@ body {
     padding: 50px;
   }
   .details {
-    width: 80vw;
+    width: 60vw;
   }
   .daily-div {
     display: flex;
@@ -255,17 +261,11 @@ body {
 }
 
 @media only screen and (max-width: 1320px) {
-  .home {
-    height: 100vh;
-  }
   .main-div {
     overflow-y: auto;
     padding: 20px 5px;
   }
 
-  .side-nav {
-    height: 100%;
-  }
   .daily-highlights {
     display: flex;
     gap: 20px;
@@ -279,35 +279,4 @@ body {
   }
 }
 
-.scroll {
-  /* width: 100%; */
-  overflow: auto;
-  border-radius: 10px;
-  background-color: rgb(214, 228, 245);
-}
-.scroll2 {
-  /* width: 100%; */
-  /* overflow: auto; */
-  border-radius: 10px;
-  background-color: rgb(214, 228, 245);
-}
-.text {
-  text-align: start;
-}
-.textend {
-  text-align: end;
-}
-.textend {
-  text-align: start;
-}
-.weathericons {
-  min-width: 30px;
-}
 
-.texts {
-  min-width: 80%;
-}
-
-.days {
-  min-width: 40px;
-}
