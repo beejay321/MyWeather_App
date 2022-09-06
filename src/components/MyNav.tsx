@@ -14,7 +14,7 @@ interface HomeProps {
 const MyNav = ({ ccurrent, location }: HomeProps) => {
   const [query, setQuery] = useState<string>("Hamburg");
   let days = ["Sun", "Mon", "Tues", "Wed", "Thurs", "Fri", "Sat"];
-  let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug"];
+  let months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sept", "Oct", "Nov", "Dec"];
 
   const getWeather = async () => {
     console.log("This is the error");
@@ -28,9 +28,7 @@ const MyNav = ({ ccurrent, location }: HomeProps) => {
             <div className="search">
               <Form className="d-flex justify-content-center">
                 <FormControl type="search" placeholder="Search" className="search-form" aria-label="Search" value={query} onChange={(e) => setQuery(e.currentTarget.value.toLowerCase())} />
-                {/* <Button variant="outline-success" className="search-btn" onClick={() => getWeather()}>
-                  Search
-                </Button> */}
+
                 <div className="search-btn">Search</div>
               </Form>
             </div>
@@ -45,10 +43,7 @@ const MyNav = ({ ccurrent, location }: HomeProps) => {
                 <span className="p-2">Today</span>
                 <span className="p-1">{days[new Date(location!.localtime_epoch * 1000).getDay()]} .</span>
                 <span className="p-1 pt-2">{new Date(location!.localtime_epoch * 1000).getDate()}</span>
-                {/* <span className="p-1 pt-2">{new Date(location!.localtime_epoch * 1000).getHours()}</span> */}
                 <span className="p-1">{months[new Date(location!.localtime_epoch * 1000).getMonth()]}</span>
-
-                {/* {location!.localtime}{" "} */}
               </div>
               <div className="location">{location!.name} </div>
             </div>
