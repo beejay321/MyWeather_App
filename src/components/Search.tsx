@@ -1,4 +1,4 @@
-import { Col, Button, Form, FormControl, Container, Row } from "react-bootstrap";
+// import { Col, Button, Form, FormControl, Container, Row } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { Location, Current, Forecast, Hour } from "../types/interface";
 import Home from "./Home";
@@ -41,39 +41,10 @@ const Search = () => {
   // const ApiKey = "fbe4e438757ef73f55428964ef949aad";
   // const ApiKey = process.env.ApiKey;
 
-  // const getWeather = async (query: string) => {
-  //   try {
-  //     let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&appid=${ApiKey}`);
-  //     if (response.ok) {
-  //       let result = await response.json();
-  //       console.log(result);
-  //       setCity(result);
-
-  //       if (result) {
-  //         try {
-  //           let NewResponse = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${result!.coord.lat}&lon=${result!.coord.lon}&units=metric&exclude=minutely&appid=${ApiKey}`);
-
-  //           let data = await NewResponse.json();
-  //           console.log(data);
-  //           setCurrent(data);
-  //         } catch (error) {
-  //           console.log(error);
-  //         }
-  //       }
-  //     }
-  //   } catch (error) {
-  //     console.log("This is the error", error);
-  //   }
-  // };
-  // https://api.openweathermap.org/data/2.5/weather?q=Hamburg&appid=29f89c36ba2b5cddcb3735b724701235
 
   useEffect(() => {
     const getWeather = async () => {
       try {
-        // let response = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${query}&APPID=${ApiKey}`);
-
-        // let response = await fetch(`https://api.weatherapi.com/v1/current.json?key=${ApiKey}&q=${query}`);
-
         let response = await fetch(`https://api.weatherapi.com/v1/forecast.json?key=${ApiKey}&q=${query}&days=1&aqi=no&alerts=no`);
 
         if (response.ok) {
@@ -83,55 +54,20 @@ const Search = () => {
           setCurrent(result.current);
           setForecast(result.forecast);
           setHour(result.forecast.forecastday[0].hour);
-
-          // if (result) {
-          //   try {
-          //     let NewResponse = await fetch(`https://api.openweathermap.org/data/2.5/onecall?lat=${result!.coord.lat}&lon=${result!.coord.lon}&units=metric&exclude=minutely&appid=${ApiKey}`);
-
-          //     let data = await NewResponse.json();
-          //     console.log(data);
-          //     setCurrent(data);
-          //   } catch (error) {
-          //     console.log(error);
-          //   }
-          // }
         }
       } catch (error) {
         console.log("This is the error", error);
       }
     };
     getWeather();
-    // }, [city, current, query, ApiKey]);
   }, []);
 
   return (
     <>
       <div className="home ">
         <MyNav ccurrent={current} location={location} />
-        <div>
-          <Home ccurrent={current} location={location} forecast={forecast} hour={hour} />
-        </div>
+        <Home ccurrent={current} location={location} forecast={forecast} hour={hour} />
       </div>
-      {/* <div>
-        <Container>
-          <Row className="d-flex justify-content-center py-4">
-            <Col sm={12} md={8} lg={4}>
-              <Form className="d-flex justify-content-center">
-                <FormControl type="search" placeholder="Search" className="me-2" aria-label="Search" value={query} onChange={(e) => setQuery(e.currentTarget.value.toLowerCase())} />
-                <Button variant="outline-success" onClick={() => getWeather(query)}>
-                  Search
-                </Button>
-              </Form>
-            </Col>
-          </Row>
-
-          <Row className="d-flex justify-content-center mb-4">
-            <Col xs={12} sm={10} md={8} lg={7} xl={4}>
-              <Home ccurrent={current} ccity={city} />
-            </Col>
-          </Row>
-        </Container>
-      </div> */}
     </>
   );
 };
